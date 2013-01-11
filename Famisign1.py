@@ -17,9 +17,9 @@ def main():
     status = api.GetUserTimeline('familab')
     checkStatus = [s.text for s in status]
     
-    string1 = '%s%s' + checkStatus[0]
+    string1 = '%s' + checkStatus[0]
     
-    status_text = alphasign.Text(string1 % (alphasign.colors.RED, alphasign.colors.GREEN), label="A", mode=alphasign.modes.INTERLOCK)
+    status_text = alphasign.Text(string1 % (alphasign.colors.RED), label="A", mode=alphasign.modes.INTERLOCK)
     print('\n -' + checkStatus[0])
     sign.write(status_text)
     
