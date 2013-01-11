@@ -17,16 +17,19 @@ def main():
     status = api.GetUserTimeline('familab')
     checkStatus = [s.text for s in status]
     
-    string1 = '%s' + checkStatus[0]
-    
-    status_text = alphasign.Text(string1 % (alphasign.colors.RED), label="A", mode=alphasign.modes.INTERLOCK)
-    print('\n -' + checkStatus[0])
-    sign.write(status_text)
-    
-        
-        
+    tweet1 = '%s' + checkStatus[0]
+    tweet2 = '%s' + checkStatus[1]   
 
+    twitter_message_1 = alphasign.Text(tweet1 % (alphasign.colors.RED), label="A", mode=alphasign.modes.SCROLL)
+    print('\n -' + checkStatus[0])
+        
+    twitter_message_2 = alphasign.Text(tweet2 % (alphasign.colors.ORANGE), label="A", mode=alphasign.modes.SCROLL)   
+    print('\n -' + checkStatus[1])
     
+    sign.allocate((twitter_message_1, twitter_message_2)
+    
+    for obj in (twitter_message_1, twitter_message_2):
+	sign.write(obj) 
         
         
 
