@@ -12,17 +12,23 @@ end
 
 tList = Twitter.user_timeline("familab")
 
-bb = BetaBrite::Serial.new('/dev/ttyUSB0') do |sign|
-    sign.stringfile('0') do
-      print string("cruel").red
-    end
 
-    sign.textfile do
-      print string("Goodbye ").green
-      print stringfile("0")
-      print string(" world.").green + sail_boat
+bb = BetaBrite::Serial.new('/dev/ttyUSB0') do |sign|
+    sign.stringfile('1') do
+      print string(tList[0].text) 
+    end    
+    sign.stringfile('4') do
+      print string(tList[1].text)
     end
-  end
+    sign.textfile do
+      print string("Twitter updates: ").red + satellite_dish
+      print stringfile("1")
+      print string("----") + satellite_dish
+      print stringfile("4")
+      print string(tList[1].text).red + sail_boat
+      print string(tList[2].text).green + sail_boat
+    end
+end
   bb.write!
 
 
