@@ -1,6 +1,7 @@
 require 'rubygems'
 require 'betabrite'
 require 'serialport'
+require 'tweetstream'
 
 bb = BetaBrite::Serial.new('/dev/ttyUSB0') do |sign|
     sign.stringfile('0') do
