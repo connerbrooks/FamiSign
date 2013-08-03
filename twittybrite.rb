@@ -98,6 +98,12 @@ Twitter.configure do |config|
   config.oauth_token_secret = 'MRKbSA1Wglo4XmwLh1NeHn3bHfeqYuIVBAgy6ywGg'
 end
 
+Twitter.configure do |config|
+  config.connection_options = Twitter::Default::CONNECTION_OPTIONS.merge(:request => { 
+    :open_timeout => 5,
+    :timeout => 10
+  })
+end
 
 while true
     BetaBrite::Serial.new('/dev/ttyUSB0').clear_memory!
